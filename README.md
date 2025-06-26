@@ -42,6 +42,7 @@ An IoT-based plant watering system that reads soil moisture and automatically wa
 HTTPClient http;
 http.begin("http://your-server.com/submit.php?moisture=345");
 int httpCode = http.GET();
+```
 3. Server Setup
 Deploy submit.php to your server:
 
