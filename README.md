@@ -57,22 +57,20 @@ file_put_contents("data.txt", $moisture);
 ?>
 ```
 4. Directory Structure
+```cpp
 auto-watering/
 ├── submit.php         # Endpoint to receive data
 ├── data.txt           # Latest moisture value
 └── index.html         # Simple dashboard
-
-🧪 Example Data Flow
-ESP reads 345 from sensor
-```cpp
-Sends to: http://your-ip/submit.php?moisture=345
 ```
-data.txt updated
-
-Web dashboard reads and displays it
+🧪 Example Data Flow
+1. ESP reads 345 from sensor
+2. Sends to: http://your-ip/submit.php?moisture=345
+3. data.txt updated
+4. Web dashboard reads and displays it
 
 📸 Optional Screenshots
-Add screenshot of your system and web dashboard here.
+![WhatsApp Image 2025-06-19 at 18 29 31_ddfe73f1](https://github.com/user-attachments/assets/d41e2106-1edf-4953-92c0-37d2d3b97679)
 
 📜 License
 MIT License
