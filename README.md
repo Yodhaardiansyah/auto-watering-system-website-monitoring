@@ -71,7 +71,7 @@ auto-watering/
 
 📸 Screenshots
 
-![WhatsApp Image 2025-06-19 at 18 29 31_ddfe73f1](https://github.com/user-attachments/assets/d41e2106-1edf-4953-92c0-37d2d3b97679)
+[WhatsApp Image 2025-06-26 at 07 52 40_a55d4717](https://github.com/user-attachments/assets/2b83da5c-64bd-46e6-892c-1aa0ccf91da2)
 
 📜 License
 MIT License
