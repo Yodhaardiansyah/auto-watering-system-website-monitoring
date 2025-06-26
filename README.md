@@ -1,88 +1,94 @@
 # Smart Auto Watering System with Web Monitoring 🌱💧
 
-An IoT-powered automatic plant watering system with real-time web-based monitoring. Built using ESP microcontrollers and a PHP/Laravel backend dashboard.
+An IoT-based plant watering system that reads soil moisture and automatically waters the plant, while sending real-time data to a custom-built web dashboard (no framework required).
 
 ## 🌟 Features
 
-- 🌡️ Soil moisture sensing
-- 💧 Automated watering control
-- 🌐 Real-time monitoring via website
-- 📊 Moisture level logging and display
-- 🧑‍🌾 Admin interface for manual override and status check
+- 🌱 Soil moisture sensing with analog sensor
+- 💧 Automatic water pump control using relay
+- 🌐 Send data to website via HTTP (POST/GET)
+- 📊 View current status on simple web dashboard
+- 📅 Optional logging for moisture history
 
-## 🔧 Technologies Used
-
-| Component     | Description                            |
-|---------------|----------------------------------------|
-| ESP8266/ESP32 | IoT microcontroller                    |
-| Soil Sensor   | Reads soil moisture                    |
-| Relay Module  | Controls water pump/valve              |
-| Laravel       | Backend framework for web dashboard    |
-| MySQL         | Stores sensor data & control logs      |
-| HTML/CSS      | Frontend UI                            |
-
-## 🖥 Web Dashboard
-
-The dashboard displays:
-- Current moisture level 🌡️
-- Last watering time ⏰
-- Manual pump control 💧
-- Historical chart (if implemented)
-
-## ⚙️ System Architecture
+## ⚙️ System Overview
 
 [Soil Moisture Sensor]
 ↓
-[ESP32]
+ESP32
 (read sensor & send data)
 ↓
-[Laravel Server]
-(receive/store/display data)
+Web Server (PHP)
+(store/display moisture data)
 ↓
-[Website Dashboard]
+Website Dashboard (HTML/CSS)
 
-bash
+markdown
 Salin
 Edit
+
+## 🔧 Components
+
+| Component         | Description                   |
+|-------------------|-------------------------------|
+| ESP32 / ESP8266   | Microcontroller (WiFi + Logic)|
+| Soil Moisture     | Analog moisture sensor        |
+| Relay Module      | Controls pump                 |
+| PHP Web Server    | Receives and stores data      |
+| HTML Dashboard    | Displays real-time moisture   |
 
 ## 🚀 Getting Started
 
-### Microcontroller Setup
+### 1. Hardware Wiring
 
-1. Connect soil moisture sensor to analog input
-2. Connect relay module to digital output (to control pump)
-3. Upload firmware with:
-   - WiFi credentials
-   - Server endpoint URL
+- Soil Sensor → Analog pin (e.g., A0)
+- Relay → Digital output (e.g., D5 / GPIO5)
+- Pump → Connected to relay output
+- ESP32/8266 → Connect to WiFi
 
-### Laravel Web Setup
+### 2. ESP Firmware
 
-```bash
-git clone https://github.com/Yodhaardiansyah/auto-watering-system-website-monitoring.git
-cd auto-watering-system-website-monitoring
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
-Database Configuration
-Update .env file with correct DB credentials
+- Read sensor value
+- Send to server every X seconds using `HTTPClient`
+- Example ESP code:
+```cpp
+HTTPClient http;
+http.begin("http://your-server.com/submit.php?moisture=345");
+int httpCode = http.GET();
+3. Server Setup
+Deploy submit.php to your server:
 
-Add route to receive moisture data via HTTP POST
-
-🧪 API Example
-http
+php
 Salin
 Edit
-POST /api/moisture
-Content-Type: application/json
+<?php
+$moisture = $_GET['moisture'];
+file_put_contents("data.txt", $moisture);
+?>
+Display value in index.html or dashboard.php:
 
-{
-  "device_id": "esp32-01",
-  "moisture": 47
-}
-📸 Screenshots
-Tambahkan tangkapan layar dari web monitoring di sini!
+php
+Salin
+Edit
+<?php echo file_get_contents("data.txt"); ?>%
+4. Directory Structure
+bash
+Salin
+Edit
+auto-watering/
+├── submit.php         # Endpoint to receive data
+├── data.txt           # Latest moisture value
+└── index.html         # Simple dashboard
+🧪 Example Data Flow
+ESP reads 345 from sensor
+
+Sends to: http://your-ip/submit.php?moisture=345
+
+data.txt updated
+
+Web dashboard reads and displays it
+
+📸 Optional Screenshots
+Add screenshot of your system and web dashboard here.
 
 📜 License
 MIT License
