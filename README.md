@@ -44,18 +44,18 @@ http.begin("http://your-server.com/submit.php?moisture=345");
 int httpCode = http.GET();
 ```
 3. Server Setup
-Deploy submit.php to your server:
-
+- Deploy submit.php to your server:
+```cpp
 <?php
 $moisture = $_GET['moisture'];
 file_put_contents("data.txt", $moisture);
 ?>
-
-Display value in index.html or dashboard.php:
-
+```
+- Display value in index.html or dashboard.php:
+```cpp
 <?php echo file_get_contents("data.txt"); ?>%
 ?>
-
+```
 4. Directory Structure
 auto-watering/
 ├── submit.php         # Endpoint to receive data
@@ -64,9 +64,9 @@ auto-watering/
 
 🧪 Example Data Flow
 ESP reads 345 from sensor
-
+```cpp
 Sends to: http://your-ip/submit.php?moisture=345
-
+```
 data.txt updated
 
 Web dashboard reads and displays it
