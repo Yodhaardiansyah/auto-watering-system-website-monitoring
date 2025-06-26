@@ -45,27 +45,22 @@ int httpCode = http.GET();
 3. Server Setup
 Deploy submit.php to your server:
 
-php
-Salin
-Edit
 <?php
 $moisture = $_GET['moisture'];
 file_put_contents("data.txt", $moisture);
 ?>
+
 Display value in index.html or dashboard.php:
 
-php
-Salin
-Edit
 <?php echo file_get_contents("data.txt"); ?>%
+?>
+
 4. Directory Structure
-bash
-Salin
-Edit
 auto-watering/
 ├── submit.php         # Endpoint to receive data
 ├── data.txt           # Latest moisture value
 └── index.html         # Simple dashboard
+
 🧪 Example Data Flow
 ESP reads 345 from sensor
 
