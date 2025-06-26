@@ -12,19 +12,7 @@ An IoT-based plant watering system that reads soil moisture and automatically wa
 
 ## ⚙️ System Overview
 
-[Soil Moisture Sensor]
-↓
-ESP32
-(read sensor & send data)
-↓
-Web Server (PHP)
-(store/display moisture data)
-↓
-Website Dashboard (HTML/CSS)
-
-markdown
-Salin
-Edit
+![ChatGPT Image 26 Jun 2025, 07 33 46](https://github.com/user-attachments/assets/dcb944f1-ac02-4cae-8ea8-ab09b7b4b70a)
 
 ## 🔧 Components
 
