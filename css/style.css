@@ -1,0 +1,134 @@
+:root {
+    --bg-light: #f4f6f8;
+    --bg-dark: #1e1e2f;
+    --text-light: #000;
+    --text-dark: #fff;
+    --primary: #007bff;
+    --box-light: #ffffff;
+    --box-dark: #2c2c3a;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+    transition: background 0.3s, color 0.3s;
+    margin: 0;
+    padding: 1rem;
+}
+
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.box {
+    background: var(--box-light);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px var(--shadow);
+    margin-bottom: 1.5rem;
+    transition: background 0.3s;
+}
+
+body.dark .box {
+    background: var(--box-dark);
+}
+
+.toggle-theme {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+input[type="submit"], button, select {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #0056b3;
+    color: white;
+}
+
+.sensor-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.sensor-box {
+    flex: 1;
+    background: var(--box-light); /* Ganti dari #e6f0ff */
+    border-radius: 8px;
+    padding: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sensor-label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: inherit; /* Tambahkan ini */
+}
+
+.sensor-value {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: inherit; /* Tambahkan ini */
+}
+
+.status-on {
+    color: green;
+}
+
+.status-off {
+    color: red;
+}
+
+body.dark .sensor-box {
+    background: var(--box-dark);
+}
+
+/* Tombol tema siang malam diposisikan di samping judul */
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.header-bar h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    flex-shrink: 1;
+}
+
+.toggle-theme {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
